@@ -1,0 +1,32 @@
+{
+  "name": "ecommerce-back-end",
+  "version": "1.0.0",
+  "description": "Back end for an e-commerce site using Express.js API, Sequelize, and a MySQL database",
+  "main": "server.js",
+
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "seed": "node seeds/index.js"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ScarletBowen/Ecommerce-Back-End.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ScarletBowen/Ecommerce-Back-End/issues"
+  },
+  "homepage": "https://github.com/ScarletBowen/Ecommerce-Back-End#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mysql2": "^3.2.0",
+    "sequelize": "^6.30.0"
+  }
+}
