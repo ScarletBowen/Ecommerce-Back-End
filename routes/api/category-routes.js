@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
   })
     .then((categoryData) => {
       res.json(categoryData);
-      // be sure to include its associated Products??
+      // be sure to include its associated Products
     });
 });
 
@@ -33,21 +33,23 @@ router.get('/:id', (req, res) => {
   });
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   // create a new category
-  Category.create({
-    name: req.body.category_name,
-  }).then((categoryData) => {
-    res.json(categoryData);
-  });
+  try {
+    const categoryData = await Category.create(req.body);
+    res.status(200).json(categoryData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
+
 
 
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
   Category.update(
     {
-      name: req.body.category_name,
+      category_name: req.body.category_name,
     },
     {
       where: {
@@ -60,6 +62,7 @@ router.put('/:id', (req, res) => {
     .catch((err) => res.json(err));
 }
 );
+
 
 router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
